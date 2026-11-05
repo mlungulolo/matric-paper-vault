@@ -31,7 +31,8 @@ import json, os, shutil, datetime, html
 
 # ===================== CONFIG: EDIT THESE =====================
 SITE_NAME = "Matric Paper Vault"          # change to your chosen name
-DOMAIN = "https://www.yourdomain.co.za"   # no trailing slash. Change once you own the domain
+DOMAIN = "https://mlungulolo.github.io/matric-paper-vault"   # replace with your custom domain when ready
+BASE_PATH = "/matric-paper-vault"
 CONTACT_EMAIL = "hello@yourdomain.co.za"
 ADSENSE_CLIENT = ""                       # e.g. "ca-pub-1234567890123456" (leave empty until approved)
 GRADES = [10, 11, 12]
@@ -78,6 +79,23 @@ SUBJECTS = [
   "tip":"Read one short article a day and write two sentences summarising it."},
 ]
 
+# Add every subject found in the official DBE scrape to the Grade 12 catalogue.
+def _pretty_slug(slug):
+    return " ".join(w.capitalize() for w in slug.replace("-", " ").split())
+try:
+    _paper_catalog = json.load(open("papers_auto.json", encoding="utf-8"))
+    _known = {x["slug"] for x in SUBJECTS}
+    for _slug, _rows in _paper_catalog.items():
+        if _slug.startswith("_") or _slug in _known or not isinstance(_rows, list) or not _rows:
+            continue
+        _name = _pretty_slug(_slug)
+        SUBJECTS.append({"slug":_slug, "name":_name,
+          "papers":["Use the paper cover page and current subject curriculum to confirm the scope of each paper."],
+          "focus":["Start with the most recent official paper, then work backwards by year.","Mark every attempt with the official memo where one is available.","Keep a short error log and revise the topics where you lose marks."],
+          "tip":"Attempt one section under timed conditions, mark it strictly, and revisit every lost mark before starting the next paper."})
+except (FileNotFoundError, json.JSONDecodeError):
+    pass
+
 # PAGES_EXTRA: extra long-form articles. Add more helpful original articles here; they build trust and traffic.
 PAGES_EXTRA = {
  "how-to-use-past-papers": {
@@ -99,9 +117,34 @@ PAGES_EXTRA = {
 <p>Every subject has a standard paper layout. Look at the cover page and instructions of a past paper so nothing surprises you on the day.</p>
 <p>Ready to start? <a href="/">Choose your subject</a>.</p>
 """},
+ "matric-results": {
+  "title":"Matric Results: How to Check, Read and Act on Your Results",
+  "desc":"A clear guide to South African matric results, statements of results, re-marks, corrections, applications and next steps.",
+  "body":"""
+<p>Use the official Department of Basic Education channels for your result. Dates and fees can change, so confirm the current notice before paying or submitting an application.</p>
+<h2>Where to get your statement of results</h2>
+<p>National Senior Certificate candidates should collect their statement from the school or examination centre where they wrote. Some results may be missing online for technical reasons. If your result is not shown, ask the centre, district office or provincial education office.</p>
+<p><a href="https://www.education.gov.za/MatricResults/ExamResults.aspx" rel="noopener">Open the official DBE results page</a>.</p>
+<h2>Read the result carefully</h2>
+<p>Check your name, identity number, subjects, marks and achievement status. Use the APS calculator only as an estimate because universities and courses can apply different rules.</p>
+<h2>If a mark looks wrong</h2>
+<p>Ask the school or examination centre about the official query process immediately. For the 2025 NSC release, the DBE said result queries had to be submitted within 30 days and name or identity-number corrections had a separate deadline. Dates, fees and forms are year-specific.</p>
+<h2>Re-mark, re-check and viewing</h2>
+<p>A re-mark asks another marker to mark the script. A re-check checks whether all answers were marked and marks were added correctly. Viewing is normally available only after the re-mark or re-check process. Read the current official release notice for the applicable fees and closing dates.</p>
+<h2>What to do next</h2>
+<ul class="tick"><li>Apply using the official university, college or training portal.</li><li>If you need a higher mark, ask about the current May/June NSC route or approved repeater options.</li><li>Keep your statement safe.</li><li>Do not pay anyone who promises to change a result or guarantee admission.</li></ul>
+<p><a href="https://www.education.gov.za/Curriculum/NationalSeniorCertificate%28NSC%29Examinations/releaseofnscexamsresults.aspx" rel="noopener">Read the official results release notice</a>.</p>
+"""},
+ "study-timetable": {
+  "title":"Matric Study Timetable: A Simple Weekly Plan",
+  "desc":"A practical mobile-friendly study timetable for Grade 10, Grade 11 and Grade 12 learners using past papers and targeted revision.",
+  "body":"""
+<p>A useful timetable is specific enough to tell you what to do but flexible enough to survive a busy week. Plan around your weakest topics.</p>
+<h2>Use this weekly pattern</h2>
+<ul class="tick"><li><strong>Monday:</strong> revise one difficult concept and complete five focused questions.</li><li><strong>Tuesday:</strong> study a second subject and write a short recall summary.</li><li><strong>Wednesday:</strong> do one timed past-paper section, then mark it.</li><li><strong>Thursday:</strong> repair Wednesday's errors and practise a similar question.</li><li><strong>Friday:</strong> review definitions, formulas, vocabulary or essay plans.</li><li><strong>Saturday:</strong> do a longer timed paper with a proper break.</li><li><strong>Sunday:</strong> check your error log, plan the next week and rest.</li></ul>
+<p>Use the <a href="/how-to-use-past-papers.html">past-paper method</a> and choose a subject from the <a href="/">grade pages</a>.</p>
+"""},
 }
-
-
 # APS calculator page body. The script runs in the browser only; nothing is sent or stored.
 # Keep the disclaimer: universities calculate APS differently.
 APS_BODY = """
@@ -217,7 +260,7 @@ def head(title, desc, path):
 {ads}
 </head><body>
 <header class="site"><div class="wrap"><a class="brand" href="/">{esc(SITE_NAME)}</a>
-<nav aria-label="Main"><a href="/">Grades</a><a href="/grade-10.html">Grade 10</a><a href="/grade-11.html">Grade 11</a><a href="/grade-12.html">Grade 12</a><a href="/aps-calculator.html">APS</a></nav></div></header>
+<nav aria-label="Main"><a href="/">Grades</a><a href="/grade-10.html">Grade 10</a><a href="/grade-11.html">Grade 11</a><a href="/grade-12.html">Grade 12</a><a href="/aps-calculator.html">APS</a><a href="/matric-results.html">Results</a></nav></div></header>
 <main class="wrap">
 """
 
@@ -234,6 +277,9 @@ def foot():
 def write(path, content):
     full = os.path.join("dist", path.lstrip("/"))
     os.makedirs(os.path.dirname(full), exist_ok=True)
+    if full.endswith((".html", ".xml", ".txt", ".css")):
+        content = content.replace('href="/', f'href="{BASE_PATH}/').replace("href='/", f"href='{BASE_PATH}/")
+        content = content.replace('src="/', f'src="{BASE_PATH}/')
     with open(full, "w", encoding="utf-8") as f: f.write(content)
 
 def load_papers():
@@ -272,7 +318,8 @@ def subject_page(s, papers, grade=12):
              f'<p>Direct links for {esc(s["name"])} are being added. Until then, use the <a href="{DBE_PAGE}" rel="noopener">official Department of Basic Education past papers page</a>, choose the year, then open the {esc(s["name"])} entry.</p>')
     paper_list = "".join(f"<li>{esc(x)}</li>" for x in s["papers"])
     focus = "".join(f"<li>{esc(x)}</li>" for x in s["focus"])
-    others = "".join(f'<li><a href="/{("grade-"+str(grade)+"/") if grade != 12 else ""}{o["slug"]}.html">{esc(o["name"])}</a></li>' for o in SUBJECTS if o["slug"] != s["slug"])
+    available_subjects = SUBJECTS if grade == 12 else SUBJECTS[:11]
+    others = "".join(f'<li><a href="/{("grade-"+str(grade)+"/") if grade != 12 else ""}{o["slug"]}.html">{esc(o["name"])}</a></li>' for o in available_subjects if o["slug"] != s["slug"])
     body = head(title, desc, path)
     body += f'<script type="application/ld+json">{breadcrumb_ld([("Home","/"),(s["name"],path)])}</script>'
     body += f"""<p class="crumbs"><a href="/">Grades</a> / <a href="/grade-{grade}.html">Grade {grade}</a> / {esc(s['name'])}</p>
@@ -330,11 +377,12 @@ def build():
         grade_title = f"Grade {grade} Past Papers and Study Resources | {SITE_NAME}"
         grade_desc = f"Browse Grade {grade} subjects, past papers, study resources and exam preparation guidance."
         gh = head(grade_title, grade_desc, grade_path)
-        links = "".join(f'<li><a href="/grade-{grade}/{s["slug"]}.html">{esc(s["name"])}</a></li>' if grade != 12 else f'<li><a href="/{s["slug"]}.html">{esc(s["name"])}</a></li>' for s in SUBJECTS)
+        available_subjects = SUBJECTS if grade == 12 else SUBJECTS[:11]
+        links = "".join(f'<li><a href="/grade-{grade}/{s["slug"]}.html">{esc(s["name"])}</a></li>' if grade != 12 else f'<li><a href="/{s["slug"]}.html">{esc(s["name"])}</a></li>' for s in available_subjects)
         intro = "Official paper and memo links are listed where they have been verified. For other subjects, start with the official Department of Basic Education source and use the study guidance on each page." if grade == 12 else "We are building this grade collection carefully. Use each subject page for the syllabus focus and study plan, and check official school or education-department sources before downloading a paper."
         gh += f'<p class="crumbs"><a href="/">Grades</a> / Grade {grade}</p><h1>Grade {grade} subjects and study resources</h1><p>{intro}</p><ul class="grid">{links}</ul>' + foot()
         write(grade_path, gh); urls.append(grade_path)
-        for subj in SUBJECTS:
+        for subj in (SUBJECTS if grade == 12 else SUBJECTS[:11]):
             urls.append(subject_page(subj, papers, grade))
 
     for slug, p in PAGES_EXTRA.items():
