@@ -197,43 +197,53 @@ APS_BODY = """
 
 # Site styles (one small file). Colours are variables at the top so you can re-theme in one place.
 CSS = """
-:root{--ink:#14212B;--paper:#F6F8F7;--teal:#0E6B5C;--teal-d:#0A4E43;--mark:#F2D35E;--line:#C5D0CC;--muted:#4A5A64;--card:#FFFFFF}
-@media (prefers-color-scheme:dark){:root{--ink:#E8EEEC;--paper:#0F1A1F;--teal:#5CC4AE;--teal-d:#7FD6C3;--mark:#7A6A22;--line:#2B3A41;--muted:#9FB1B8;--card:#16252C}}
+:root{--ink:#14212B;--paper:#F4F7F6;--teal:#0E6B5C;--teal-d:#0A4E43;--mark:#F2D35E;--line:#C8D4D0;--muted:#52636B;--card:#FFFFFF;--shadow:0 2px 12px rgba(20,33,43,.06)}
+@media (prefers-color-scheme:dark){:root{--ink:#E8EEEC;--paper:#0F1A1F;--teal:#70D0BA;--teal-d:#9BE2D0;--mark:#7A6A22;--line:#2B3A41;--muted:#AABBC1;--card:#16252C;--shadow:0 2px 14px rgba(0,0,0,.24)}}
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 a{color:var(--teal);text-underline-offset:3px}
-a:focus-visible,button:focus-visible{outline:3px solid var(--mark);outline-offset:2px}
-.wrap{max-width:720px;margin:0 auto;padding:0 18px}
-header.site{border-bottom:1px solid var(--line);background:var(--card)}
-header.site .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding-top:12px;padding-bottom:12px}
-.brand{font:700 1.25rem Georgia,"Times New Roman",serif;color:var(--ink);text-decoration:none}
-nav a{margin-left:14px;font-size:.95rem;text-decoration:none}
-h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.25;margin:1.6em 0 .5em}
-h1{font-size:2rem;margin-top:1em}
-h2{font-size:1.4rem}
-.cover{border:2px solid var(--ink);padding:5px;margin:22px 0 26px;background:var(--card)}
-.cover-in{border:1px solid var(--ink);padding:18px 18px 14px}
-.cover h1{margin:0 0 .4em;font-size:1.9rem}
-.cover p{margin:.3em 0}
-.facts{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:14px 0 0;padding-top:12px;border-top:1px solid var(--ink);font-size:.95rem}
+a:hover{color:var(--teal-d)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--mark);outline-offset:3px}
+.wrap{width:min(100% - 32px,880px);margin:0 auto}
+header.site{border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--card) 94%,transparent);position:sticky;top:0;z-index:5;backdrop-filter:blur(10px)}
+header.site .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding-top:10px;padding-bottom:10px}
+.brand{font:700 1.2rem Georgia,"Times New Roman",serif;color:var(--ink);text-decoration:none;white-space:nowrap;padding:8px 0}
+nav{display:flex;flex-wrap:wrap;align-items:center;gap:2px 4px}
+nav a{display:inline-flex;align-items:center;min-height:44px;padding:7px 9px;border-radius:7px;font-size:.92rem;text-decoration:none;white-space:nowrap}
+nav a:hover,nav a:focus-visible{background:var(--paper);color:var(--teal)}
+main.wrap{padding-top:10px}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.25;margin:1.6em 0 .55em;scroll-margin-top:80px}
+h1{font-size:clamp(1.75rem,5vw,2.35rem);margin-top:.8em;letter-spacing:-.01em}
+h2{font-size:clamp(1.25rem,3.5vw,1.55rem)}
+h3{font-size:1.1rem}
+p{max-width:72ch}
+.cover{border:1px solid var(--line);border-top:5px solid var(--teal);padding:5px;margin:20px 0 30px;background:var(--card);box-shadow:var(--shadow);border-radius:10px}
+.cover-in{border:1px solid var(--line);padding:18px 18px 15px;border-radius:6px}
+.cover h1{margin:0 0 .45em;font-size:clamp(1.7rem,5vw,2.25rem)}
+.cover p{margin:.35em 0}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:5px 16px;margin:16px 0 0;padding-top:13px;border-top:1px solid var(--line);font-size:.94rem}
 .facts dt{font-weight:700}.facts dd{margin:0}
-mark{background:var(--mark);color:inherit;padding:0 .2em}
-.grid{display:grid;grid-template-columns:1fr;gap:10px;padding:0;list-style:none;margin:14px 0}
-.grid a{display:block;padding:13px 16px;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--teal);text-decoration:none;color:var(--ink);font-weight:600}
-.grid a:hover{border-left-color:var(--mark)}
-@media(min-width:560px){.grid{grid-template-columns:1fr 1fr}}
-.calc input[type=number]{border:1px solid var(--line);background:var(--card);color:var(--ink)}
-button{font:inherit;font-weight:700;padding:10px 18px;background:var(--teal);color:#fff;border:0;cursor:pointer}
+mark{background:var(--mark);color:inherit;padding:0 .22em;border-radius:2px}
+.grid{display:grid;grid-template-columns:1fr;gap:10px;padding:0;list-style:none;margin:14px 0 24px}
+.grid a{display:flex;align-items:center;min-height:48px;padding:12px 15px;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--teal);text-decoration:none;color:var(--ink);font-weight:650;border-radius:7px;box-shadow:var(--shadow);transition:transform .12s ease,border-color .12s ease}
+.grid a:hover{border-left-color:var(--mark);transform:translateY(-1px)}
+@media(min-width:620px){.grid{grid-template-columns:1fr 1fr}}
+.calc{background:var(--card);border:1px solid var(--line);padding:14px;border-radius:9px;box-shadow:var(--shadow);overflow-x:auto}
+.calc input[type=number]{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:5px;min-height:40px;padding:6px 8px}
+button{font:inherit;font-weight:700;min-height:44px;padding:9px 18px;background:var(--teal);color:#fff;border:0;border-radius:7px;cursor:pointer}
+button:hover{background:var(--teal-d)}
 @media (prefers-color-scheme:dark){button{color:#0F1A1F}}
-table{width:100%;border-collapse:collapse;font-size:.95rem;margin:12px 0}
-th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line)}
-.scroll{overflow-x:auto}
-.note{border-left:6px solid var(--mark);background:var(--card);padding:12px 16px;margin:20px 0;font-size:.95rem}
+table{width:100%;border-collapse:collapse;font-size:.95rem;margin:14px 0;min-width:420px}
+th,td{text-align:left;padding:10px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--paper);font-weight:700}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:7px;background:var(--card)}
+.note{border-left:5px solid var(--mark);background:var(--card);padding:13px 16px;margin:20px 0;font-size:.95rem;border-radius:0 7px 7px 0;box-shadow:var(--shadow)}
 .crumbs{font-size:.9rem;margin-top:16px;color:var(--muted)}
-footer{border-top:1px solid var(--line);margin-top:48px;padding:22px 0 36px;font-size:.9rem;color:var(--muted)}
-footer a{margin-right:14px}
-ul.tick{padding-left:1.2em}ul.tick li{margin:.4em 0}
+footer{border-top:1px solid var(--line);margin-top:56px;padding:24px 0 38px;font-size:.9rem;color:var(--muted)}
+footer a{display:inline-block;margin:4px 14px 4px 0}
+ul.tick{padding-left:1.25em}ul.tick li{margin:.55em 0}
+@media(max-width:619px){header.site .wrap{align-items:flex-start}.brand{width:100%}nav{width:100%;gap:2px}nav a{flex:1;justify-content:center;padding-left:5px;padding-right:5px;font-size:.84rem}main.wrap{padding-top:4px}.cover-in{padding:16px 14px 13px}.facts{grid-template-columns:1fr 1.6fr;gap:4px 10px}}
 """
 
 # Safely escape text for use inside HTML. Use it on ALL data-file values.
