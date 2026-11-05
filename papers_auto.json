@@ -1,0 +1,269 @@
+{
+ "accounting": [
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 1 (Afrikaans)",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=izg_8sI7fjc%3D&tabid=5742&portalid=0&mid=14825",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=bGlkR93Uuts%3D&tabid=5742&portalid=0&mid=14825",
+   "extras": [
+    {
+     "name": "Paper 1 Answer Book",
+     "url": "https://www.education.gov.za/LinkClick.aspx?fileticket=BanN8ipxWTc%3D&tabid=5742&portalid=0&mid=14825"
+    }
+   ]
+  },
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 1 (English)",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=fjsgFDpa8wg%3D&tabid=5742&portalid=0&mid=14825",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=oZyi7eQjyEo%3D&tabid=5742&portalid=0&mid=14825",
+   "extras": [
+    {
+     "name": "Paper 1 Answer Book",
+     "url": "https://www.education.gov.za/LinkClick.aspx?fileticket=1WvL2tbx12Y%3D&tabid=5742&portalid=0&mid=14825"
+    }
+   ]
+  },
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 2 (Afrikaans)",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=OhgP9xCUsIk%3D&tabid=5742&portalid=0&mid=14825",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=kXV10u2yNhk%3D&tabid=5742&portalid=0&mid=14825",
+   "extras": [
+    {
+     "name": "Paper 2 Answerbook",
+     "url": "https://www.education.gov.za/LinkClick.aspx?fileticket=q0SuoXEiUx4%3D&tabid=5742&portalid=0&mid=14825"
+    }
+   ]
+  },
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 2 (English)",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=3BYl4uHjIyA%3D&tabid=5742&portalid=0&mid=14825",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=xBkE4RhcBtc%3D&tabid=5742&portalid=0&mid=14825",
+   "extras": [
+    {
+     "name": "Paper 2 Answerbook",
+     "url": "https://www.education.gov.za/LinkClick.aspx?fileticket=t08Pta3AYdE%3D&tabid=5742&portalid=0&mid=14825"
+    }
+   ]
+  }
+ ],
+ "business-studies": [
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 1 (Afrikaans)",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=yGKQ3GEYkQU%3D&tabid=5742&portalid=0&mid=14829",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=3Dzr0tRgwyc%3D&tabid=5742&portalid=0&mid=14829",
+   "extras": []
+  },
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 1 (English)",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=UZMoZkUl42g%3D&tabid=5742&portalid=0&mid=14829",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=IAKtVCrlBaw%3D&tabid=5742&portalid=0&mid=14829",
+   "extras": []
+  },
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 2 (Afrikaans)",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=bM-ZzLjF_mI%3D&tabid=5742&portalid=0&mid=14829",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=LlderxIdfJA%3D&tabid=5742&portalid=0&mid=14829",
+   "extras": []
+  },
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 2 (English)",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=exxYQ15vBPs%3D&tabid=5742&portalid=0&mid=14829",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=mPciP6R-yfQ%3D&tabid=5742&portalid=0&mid=14829",
+   "extras": []
+  }
+ ],
+ "economics": [
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 1 (Afrikaans)",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=XHDLBUOIg40%3D&tabid=5742&portalid=0&mid=14836",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=-zq4XGaXUHE%3D&tabid=5742&portalid=0&mid=14836",
+   "extras": []
+  },
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 1 (English)",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=ctIxKzDjX7o%3D&tabid=5742&portalid=0&mid=14836",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=0Nt-PqRAEpI%3D&tabid=5742&portalid=0&mid=14836",
+   "extras": []
+  },
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 2 (Afrikaans)",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=Oqp1wvQJ55U%3D&tabid=5742&portalid=0&mid=14836",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=0el9T3akGos%3D&tabid=5742&portalid=0&mid=14836",
+   "extras": []
+  },
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 2 (English)",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=Bi6CsZZVPzo%3D&tabid=5742&portalid=0&mid=14836",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=iIiF0mlTUsU%3D&tabid=5742&portalid=0&mid=14836",
+   "extras": []
+  }
+ ],
+ "geography": [
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 1 (Afrikaans)",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=-0dgorql0HQ%3D&tabid=5742&portalid=0&mid=14839",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=RKX0Vtd3ieo%3D&tabid=5742&portalid=0&mid=14839",
+   "extras": []
+  },
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 1 (English)",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=-yt9PT3ew3w%3D&tabid=5742&portalid=0&mid=14839",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=3m3EI20-OFE%3D&tabid=5742&portalid=0&mid=14839",
+   "extras": []
+  },
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 2 (Afrikaans)",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=_tGZd5BZSwo%3D&tabid=5742&portalid=0&mid=14839",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=8hCaIKCnVUs%3D&tabid=5742&portalid=0&mid=14839",
+   "extras": []
+  },
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 2 (English)",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=q-0mpNmbw9Q%3D&tabid=5742&portalid=0&mid=14839",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=V40npxGuaQY%3D&tabid=5742&portalid=0&mid=14839",
+   "extras": []
+  }
+ ],
+ "history": [
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 1 (Afrikaans)",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=hrm480hVtPI%3D&tabid=5742&portalid=0&mid=14840",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=EzwYRcdpGrM%3D&tabid=5742&portalid=0&mid=14840",
+   "extras": [
+    {
+     "name": "Paper 1 Addendum",
+     "url": "https://www.education.gov.za/LinkClick.aspx?fileticket=8luBPwS2osI%3D&tabid=5742&portalid=0&mid=14840"
+    }
+   ]
+  },
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 1 (English)",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=2o0MsmBcqVE%3D&tabid=5742&portalid=0&mid=14840",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=7ybdVYFBcEk%3D&tabid=5742&portalid=0&mid=14840",
+   "extras": [
+    {
+     "name": "Paper 1 Addendum",
+     "url": "https://www.education.gov.za/LinkClick.aspx?fileticket=lXD3J8gpiAk%3D&tabid=5742&portalid=0&mid=14840"
+    }
+   ]
+  },
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 2 (Afrikaans)",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=GJ_HmJQIzQ4%3D&tabid=5742&portalid=0&mid=14840",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=eE-MvYGMNqQ%3D&tabid=5742&portalid=0&mid=14840",
+   "extras": [
+    {
+     "name": "Paper 2 Addendum",
+     "url": "https://www.education.gov.za/LinkClick.aspx?fileticket=FuSfa_tMP1M%3D&tabid=5742&portalid=0&mid=14840"
+    }
+   ]
+  },
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 2 (English)",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=BTY7J86DRoQ%3D&tabid=5742&portalid=0&mid=14840",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=iXDlZV9jCl4%3D&tabid=5742&portalid=0&mid=14840",
+   "extras": [
+    {
+     "name": "Paper 2 Addendum",
+     "url": "https://www.education.gov.za/LinkClick.aspx?fileticket=-CZsHQ-vqVA%3D&tabid=5742&portalid=0&mid=14840"
+    }
+   ]
+  }
+ ],
+ "english-home-language": [
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 1",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=lBjX_BhxfDo%3D&tabid=5742&portalid=0&mid=14813",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=4uUJDTNayWI%3D&tabid=5742&portalid=0&mid=14813",
+   "extras": []
+  },
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 2",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=yLAaz79PEc0%3D&tabid=5742&portalid=0&mid=14813",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=8rX5pa7hTZc%3D&tabid=5742&portalid=0&mid=14813",
+   "extras": []
+  },
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 3",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=WOd99ySX9PI%3D&tabid=5742&portalid=0&mid=14813",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=sBDykKG2NIE%3D&tabid=5742&portalid=0&mid=14813",
+   "extras": []
+  }
+ ],
+ "english-first-additional-language": [
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 1",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=VXTRiMrJd68%3D&tabid=5742&portalid=0&mid=14813",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=bj6VjblTPP4%3D&tabid=5742&portalid=0&mid=14813",
+   "extras": []
+  },
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 2",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=E3kkv7eqk4A%3D&tabid=5742&portalid=0&mid=14813",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=4TCgCzWxc_s%3D&tabid=5742&portalid=0&mid=14813",
+   "extras": []
+  },
+  {
+   "year": 2025,
+   "sitting": "Nov",
+   "label": "Paper 3",
+   "qp": "https://www.education.gov.za/LinkClick.aspx?fileticket=d2S51uLO9AQ%3D&tabid=5742&portalid=0&mid=14813",
+   "memo": "https://www.education.gov.za/LinkClick.aspx?fileticket=vHZLZjg0qoY%3D&tabid=5742&portalid=0&mid=14813",
+   "extras": []
+  }
+ ],
+ "_generated": [
+  {
+   "note": "Seed: 2025 November rows read from the DBE page for 7 subjects. scrape_dbe.py replaces this file."
+  }
+ ]
+}

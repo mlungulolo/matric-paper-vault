@@ -1,0 +1,348 @@
+MATRIC PAST-PAPERS SITE: PHONE-ONLY BUILD GUIDE
+================================================
+
+SHORT ANSWER ON HOSTING
+-----------------------
+Yes, use GitHub, but as the place your code LIVES, and deploy the
+site with Cloudflare Pages (free).
+
+Why not publish straight from GitHub Pages?
+- GitHub's Pages terms say it is not meant for sites that are
+  primarily commercial. An ad-funded site is a grey area. Cloudflare
+  Pages has no such restriction for this use.
+- Cloudflare Pages runs the build script for you, so you only edit
+  one file on your phone and the site rebuilds itself.
+- Both are free, both give free HTTPS and fast delivery.
+
+WHAT YOU ARE BUILDING
+---------------------
+A fast static website (no database, no plugins, nothing to hack).
+build.py creates all the pages: home, 11 subject pages, a study
+method article, About, Contact, Privacy, sitemap, robots.txt.
+Paper links come from papers.json, which you fill in over time.
+
+WHAT TO KEEP IN MIND (be honest with yourself)
+----------------------------------------------
+- Papers belong to the Department of Basic Education (DBE) and other
+  owners. LINK to the official files. Do not copy another site's
+  files or pages. Do not scrape competitors.
+- Read the DBE site's Terms of Use before you host any file yourself.
+- Money comes slowly. Plan on months of building before real income.
+  See EARNINGS at the bottom.
+
+------------------------------------------------------------
+PART 1: ACCOUNTS (about 20 minutes)
+------------------------------------------------------------
+1. Create a free GitHub account at github.com.
+2. Create a free Cloudflare account at cloudflare.com.
+3. Choose your site name and check the .co.za domain is free at a
+   registrar (Afrihost, Domains.co.za, Xneelo or similar).
+   Name ideas to check: MatricPaperVault, NSCPastPapersHub,
+   PastPapersZA, MatricPapersHub.
+   Buy the domain (about R100 to R200 a year).
+
+------------------------------------------------------------
+PART 2: PUT THE CODE ON GITHUB
+------------------------------------------------------------
+Use your phone browser and switch it to "Desktop site" if buttons
+are hidden.
+1. On GitHub tap "+" then "New repository". Name it, for example,
+   matric-site. Set it Public. Tap Create.
+2. Tap "Add file" then "Upload files". Upload these files from
+   this chat: build.py, papers.json and scrape_dbe.py.
+   Tap Commit changes.
+3. Add the weekly link-refresh job (see PART 9): tap "Add file",
+   "Create new file", type  .github/workflows/scrape.yml  as the
+   name, paste the text of scrape_workflow.yml, and commit.
+
+------------------------------------------------------------
+PART 3: EDIT YOUR SETTINGS
+------------------------------------------------------------
+1. In GitHub open build.py and tap the pencil icon.
+2. Change the CONFIG block at the top:
+     SITE_NAME     your chosen name
+     DOMAIN        https://www.yourdomain.co.za
+     CONTACT_EMAIL a real email on your domain or a Gmail
+     ADSENSE_CLIENT leave empty for now
+3. Tap Commit changes.
+
+------------------------------------------------------------
+PART 4: DEPLOY WITH CLOUDFLARE PAGES
+------------------------------------------------------------
+1. In Cloudflare go to Workers & Pages, then Create, then Pages,
+   then Connect to Git. Pick your repository.
+2. Build settings:
+     Framework preset:      None
+     Build command:         python3 build.py
+     Build output directory: dist
+3. If the build fails with a Python error, add an environment
+   variable PYTHON_VERSION with the value 3.11 and retry.
+4. Tap Save and Deploy. You get a free address ending in
+   .pages.dev. Open it and check the site on your phone.
+5. In the project open Custom domains, then add your .co.za
+   domain and follow the steps (usually changing nameservers at your
+   registrar to Cloudflare's). HTTPS is automatic.
+
+From now on: every time you edit a file on GitHub, the site
+rebuilds in about a minute.
+
+------------------------------------------------------------
+PART 5: ADD PAPER LINKS BY HAND (optional, see PART 9 for automatic)
+------------------------------------------------------------
+1. Open the official DBE past papers page:
+   https://www.education.gov.za/Curriculum/NationalSeniorCertificate(NSC)Examinations/NSCPastExaminationpapers.aspx
+2. For a paper, long-press the download link and copy the address.
+3. In GitHub edit papers.json. Example entry:
+     "mathematics": [
+       {"year": 2024, "sitting": "Nov", "label": "Paper 1",
+        "qp": "PASTE-COPIED-LINK", "memo": "PASTE-COPIED-LINK"}
+     ]
+4. Commit. The subject page now shows a table with the links.
+5. Only add links you have opened and checked. Aim for 5 to 10
+   links a day. Start with Maths, Maths Lit, Physical Sciences,
+   Life Sciences and Accounting, which have the biggest audiences.
+
+------------------------------------------------------------
+PART 6: GET FOUND ON GOOGLE (SEO)
+------------------------------------------------------------
+1. Go to search.google.com/search-console and add your domain.
+   Verify it (Cloudflare DNS makes this a one-tap step).
+2. Submit your sitemap: yourdomain.co.za/sitemap.xml
+3. Target searches like:
+     "[subject] past papers grade 12"
+     "[subject] grade 12 [year] memo"
+     "matric past papers [year] november"
+4. Write your own text on every page. Do not paste text from other
+   sites. Pages that are only lists of links rank poorly and can be
+   refused by AdSense.
+5. Link your pages to each other (the subject pages already do).
+6. Share in school WhatsApp groups, Facebook groups for matrics,
+   and ask teachers to link to you. Real links help ranking.
+7. Faster pages rank better. This site is static and light, so keep
+   it that way: no heavy sliders or big images.
+
+ADD THESE NEXT (they bring extra visitors):
+- APS calculator (very common search)
+- Exam timetable page, updated each year
+- Study timetable page for matrics
+- Grade 10 and 11 subject pages once Grade 12 is solid
+- "Supplementary exam" and "matric results date" info pages
+
+------------------------------------------------------------
+PART 7: GET PAID WITH GOOGLE ADSENSE
+------------------------------------------------------------
+(Google Ads is for paying to advertise. AdSense is how YOU earn.)
+1. Wait until you have your own domain, about 30 useful pages and
+   some visitors. AdSense can refuse thin sites.
+2. Apply at adsense.google.com using your .co.za domain.
+3. When approved, copy your publisher ID (looks like
+   ca-pub-1234567890123456) into ADSENSE_CLIENT in build.py.
+   Commit. The site adds the ad script and an ads.txt file itself.
+4. In AdSense turn on Auto ads for the site.
+5. Be patient with approval; it can take days or weeks.
+6. Never click your own ads. That can get you banned.
+7. If you have visitors from Europe or the UK, set up Google's free
+   consent message in AdSense (Privacy and messaging).
+
+OTHER INCOME LATER
+- Sponsored placements from tutoring and study-guide businesses
+- Affiliate links for study materials
+- A donation button once the site has regular users
+
+------------------------------------------------------------
+90-DAY PLAN
+------------------------------------------------------------
+Weeks 1-2   Accounts, domain, deploy, check it on your phone.
+Weeks 3-6   Add 5-10 verified paper links a day for the top 5
+            subjects. Write one new helpful page a week.
+Weeks 7-10  Build the APS calculator and exam timetable page.
+            Apply for AdSense.
+Weeks 11-13 Check Search Console weekly: see which searches show
+            you, and write pages for the ones that nearly rank.
+
+------------------------------------------------------------
+EARNINGS (estimates, not promises)
+------------------------------------------------------------
+South African traffic usually earns about $1 to $3 per 1,000
+pageviews with AdSense.
+  Month 1-6        close to R0 to R500
+  Around month 12  20k-50k views: about R400 to R2,500 a month
+  Year 2, strong   100k-250k views: about R2,000 to R13,000 a month
+Traffic jumps around trials, finals and results, then falls.
+Treat this as an asset you build slowly.
+
+------------------------------------------------------------
+COMMON PROBLEMS
+------------------------------------------------------------
+- Build fails: check build.py for a missing quote or bracket after
+  your edit. Cloudflare shows the exact line.
+- Page shows old content: wait a minute and refresh.
+- AdSense says "low value content": add more original pages and
+  wait for more visitors.
+- Link table not showing: the subject slug in papers.json must
+  match exactly (for example mathematical-literacy).
+
+
+------------------------------------------------------------
+PART 8: THE APS CALCULATOR (already built in)
+------------------------------------------------------------
+build.py now creates /aps-calculator.html. Learners enter their marks;
+it shows the level for each subject (7 to 1) and the total out of 42
+(six subjects, no Life Orientation) or out of 49 if they tick the
+Life Orientation box. It is linked from the menu and home page.
+It is a general estimate only. Each university has its own method
+and the page says so. Do not remove that warning.
+
+------------------------------------------------------------
+PART 9: AUTO-COLLECT THE OFFICIAL LINKS (scrape_dbe.py)
+------------------------------------------------------------
+What it does: reads the Department of Basic Education past-paper
+pages with BeautifulSoup and writes papers_auto.json. build.py reads
+that file and fills every subject page's table: year, sitting, paper
+number, language, question paper link, memo link, and extras such as
+answer books and data files. It saves LINKS only. It does not download
+or host any paper.
+
+Run it from your phone with GitHub Actions (no computer needed):
+1. In your repo tap Settings, then Actions, then General. Under
+   "Workflow permissions" choose "Read and write permissions". Save.
+2. Make sure .github/workflows/scrape.yml exists (PART 2, step 3).
+3. Tap the Actions tab, pick "Refresh paper links", tap "Run
+   workflow". Wait about 2 to 5 minutes.
+4. It commits papers_auto.json. Cloudflare then rebuilds the site.
+   After that it refreshes itself every Monday.
+
+If the Action cannot reach the DBE site (it might be blocked), open
+the DBE year page in your phone browser, save the page, and run the
+script in Google Colab with:
+   python scrape_dbe.py --html saved.html --year 2025 --sitting Nov
+(upload scrape_dbe.py and the saved page first).
+
+Read these warnings:
+- I tested the parser on a copy of the page structure I saw
+  (headings, tables of Title and Download links). I could not reach
+  the DBE site from my test environment, so run it once and check
+  the output before you trust it. Open papers_auto.json and spot-check
+  a few links by tapping them.
+- The DBE pages have mistakes: the same file listed twice, a memo
+  link that points to the paper, mixed-up titles. The script flags
+  these with "_conflict" and prints a warning; build.py hides a memo
+  link that is identical to the paper link. Fix wrong ones by adding
+  the correct entry in papers.json.
+- Newer papers are titled English SAL (Second Additional Language).
+  Older ones say FAL. The script keeps each as its own subject key.
+- The DBE page address pattern may change. If discovery finds
+  nothing, it falls back to the 2025 November page. To add other
+  pages use:  python scrape_dbe.py --page "PASTE-PAGE-URL"
+- The script waits 3 seconds between requests, checks robots.txt,
+  caches pages, and identifies itself. Put a real contact email at
+  the top of scrape_dbe.py. Do not hammer the site. Read the DBE
+  terms of use first.
+- Links are DBE download tickets. If DBE reorganises its site, links
+  can break. The weekly refresh fixes most of that.
+- Keep your own manual links in papers.json. Do not edit
+  papers_auto.json by hand, since the next run overwrites it.
+
+
+============================================================
+FINAL SECTION: EVERYTHING YOU NEED TO FINISH AND SUCCEED
+============================================================
+
+PART 10: FILE MAP (what each file is for)
+------------------------------------------------------------
+SEPARATE FILES (use these for a clean, easy-to-maintain repo)
+  build.py            builds the website from the data files
+  scrape_dbe.py       collects official paper LINKS (BeautifulSoup)
+  papers_auto.json    links the scraper wrote (starter set included:
+                      2025 Nov, 7 subjects). Do not edit by hand.
+  papers.json         YOUR manual links (safe to edit)
+  scrape_workflow.yml weekly auto-refresh. Save in the repo as
+                      .github/workflows/scrape.yml
+  papers_links.csv    the same links as a spreadsheet (open in Sheets)
+ONE-FILE OPTIONS
+  all_in_one.py       scraper + builder in ONE program
+                      (python3 all_in_one.py scrape | build | all)
+  ALL_FILES_IN_ONE.txt every file pasted into one text document, each
+                      starting with "===== FILE: name =====", so you can
+                      copy any file into GitHub from one place.
+USE EITHER the separate files OR all_in_one.py. Do not mix them.
+(If you use all_in_one.py: Cloudflare build command is
+ python3 all_in_one.py build , and the workflow step becomes
+ python all_in_one.py scrape .)
+
+PART 11: BEST PRACTICES (the rules that protect your site)
+------------------------------------------------------------
+LEGAL AND TRUST
+- Link to official DBE files. Never re-host or copy another site's
+  files or pages. Keep the "not affiliated with the DBE" notice.
+- Never claim your site is official.
+- Offer a way to report problems (the Contact page) and fix reports fast.
+- Keep the Privacy page current and follow POPIA: no unnecessary
+  personal data, and tell people about cookies and ads.
+GOOGLE AND ADSENSE
+- Original text on every page. Pages that only list links get ignored
+  or rejected.
+- Never click your own ads or ask others to. Never pay for fake traffic.
+- Do not put ads on the same page as misleading buttons such as fake
+  "Download" buttons. Clearly separate ads from content.
+- Keep the site fast: no big images, no pop-ups.
+- Do not hide content from users that you show to Google.
+SEO
+- One main topic per page; clear title and description (the builder
+  does this).
+- Add internal links between related pages.
+- Update key pages each exam season and show the updated date.
+- Add helpful pages learners search for (APS calculator, exam
+  timetable, study timetable, results information).
+- Watch Search Console weekly: fix errors, note which searches
+  you almost rank for, and write pages for them.
+CODE AND DATA
+- Keep papers.json for your hand-made links and let the scraper own
+  papers_auto.json.
+- After each scraper run, tap 5 random links to check them.
+- Back up: your GitHub repo IS your backup. Commit small changes with
+  clear messages.
+- Never put passwords or keys in the repo. The AdSense publisher ID
+  is public by design; nothing else secret belongs in it.
+- Keep the scraper polite: weekly at most, 3 second delay.
+
+PART 12: LAUNCH CHECKLIST
+------------------------------------------------------------
+[ ] Domain bought and name chosen
+[ ] Repo created, files uploaded (separate files OR all_in_one.py)
+[ ] CONFIG edited: site name, domain, email, scraper contact email
+[ ] Cloudflare Pages deploying, custom domain and HTTPS working
+[ ] Workflow permissions set to Read and write
+[ ] Scraper run once; papers_auto.json spot-checked
+[ ] Search Console verified and sitemap submitted
+[ ] Privacy, About, Contact pages read and correct
+[ ] 30+ useful pages live (subjects, study articles, APS tool)
+[ ] AdSense applied; ID added to build.py once approved
+[ ] A WhatsApp or Telegram channel started for returning learners
+
+PART 13: YEARLY CALENDAR (approximate; confirm dates yearly)
+------------------------------------------------------------
+Aug-Sep   Trial exams: highest need for past papers. Publish and
+          improve subject pages before this.
+Oct-Nov   Final exams: traffic peak. Keep the site stable; do not
+          make big changes now.
+Jan       Matric results: results and APS and "what now" pages get
+          traffic. Publish early.
+Feb-Mar   Supplementary exams and new school year: refresh papers.
+Mar-Jun   Term tests and May/June papers: Grade 10 and 11 pages.
+Weekly    Scraper refresh, check Search Console, add one new page.
+
+PART 14: WHAT SUCCESS LOOKS LIKE (be realistic)
+------------------------------------------------------------
+- Month 1-3: site live, indexed, 50+ pages, first visitors.
+- Month 4-6: first real search traffic; AdSense approved.
+- Month 7-12: 20k to 50k views a month if you add pages weekly.
+- Year 2: scale to Grades 8-11 and more tools.
+Biggest risks and the fix:
+- Competitors rank above you  -> pick gaps (Grades 8-11, tools,
+  better mobile speed) rather than only copying their subjects.
+- AdSense says low value      -> more original content, wait longer.
+- DBE changes its page layout -> scraper finds 0 rows and refuses to
+  overwrite your data; adjust parse_page() or add links manually.
+- Seasonal income swings      -> save during peak months.
+Treat this as a business you build for 12 months, not a quick income.

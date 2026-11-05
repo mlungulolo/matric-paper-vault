@@ -1,0 +1,7 @@
+{
+  "_how_to_add": "Copy a subject slug as the key. Add one object per paper with year, sitting, label, and the official qp and memo links you have verified. Delete this note line when you like.",
+  "_example_mathematics": [
+    {"year": 2024, "sitting": "Nov", "label": "Paper 1", "qp": "PASTE-VERIFIED-LINK", "memo": "PASTE-VERIFIED-LINK"}
+  ],
+  "mathematics": []
+}
